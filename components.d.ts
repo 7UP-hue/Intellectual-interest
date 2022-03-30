@@ -7,7 +7,6 @@ declare module 'vue' {
     Aaa: typeof import('./src/components/aaa.vue')['default']
     About: typeof import('./src/components/About.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElRow: typeof import('element-plus/es')['ElRow']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
   }
 }
