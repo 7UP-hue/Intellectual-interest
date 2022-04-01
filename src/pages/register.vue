@@ -11,18 +11,21 @@
       <div>
         <el-form
           style="max-width: 460px"
+          :model="regForm"
+          :rules="rules"
+          ref="regFormRef"
         >
-          <el-form-item>
-            <el-input v-model="userLogin.userName" placeholder="用户名" :prefix-icon="User"/>
+          <el-form-item prop="userName">
+            <el-input v-model="regForm.userName" placeholder="用户名" :prefix-icon="User"/>
           </el-form-item>
-          <el-form-item>
-            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="userLogin.password" placeholder="请输入密码" :prefix-icon="Unlock" type="password" show-password />
+          <el-form-item prop="pass">
+            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="regForm.pass" placeholder="请输入密码" :prefix-icon="Unlock" type="password" show-password />
           </el-form-item>
-          <el-form-item>
-            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="userLogin.password" placeholder="请确认密码" :prefix-icon="Unlock" type="password" show-password />
+          <el-form-item prop="checkPass">
+            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="regForm.checkPass" placeholder="请确认密码" :prefix-icon="Unlock" type="password" show-password />
           </el-form-item>
           <div>
-            <el-button>点此登录</el-button>
+            <el-button type="text" @click="this.$router.push('/login')">已有账号，点此登录</el-button>
             <el-button type="primary">注册</el-button>
           </div>
         </el-form>
@@ -31,23 +34,58 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {
-  Avatar,User,Unlock
-} from '@element-plus/icons-vue'
-import { ref } from 'vue'
-const userLogin = ref({
-  userName: '',
-  password: ''
-})
-const show_down = ref(true)
-const changeArm = (flag) =>  {
-  if( flag===1 ) {
-    show_down.value = false
+  import {
+    Avatar,User,Unlock
+  } from '@element-plus/icons-vue'
+  import { reactive, ref } from 'vue'
+  import type { FormInstance } from 'element-plus'
+  const regFormRef = ref<FormInstance>()
+  const regForm = reactive({
+    userName: '',
+    pass: '',
+    checkPass: ''
+  })
+  const show_down = ref(true)
+  const changeArm = (flag) =>  {
+    if( flag===1 ) {
+      show_down.value = false
+    }
+    else {
+      show_down.value = true
+    }
   }
-  else {
-    show_down.value = true
+  const validateName = (rule: any, value: any, callback: any) => {
+    if(value === '') {
+      callback(new Error('用户名不能为空！'))
+    } else {
+      callback()
+    }
   }
-}
+  const validatePass = (rule: any, value: any, callback: any) => {
+    if(value === '') {
+      callback(new Error('密码不能为空！'))
+    } else {
+      if(regForm.checkPass !== '') {
+        if(!regFormRef.value) return 
+        regFormRef.value.validateField('checkPass',() => null)
+      }
+      callback()
+    }
+  }
+  const validatePass2 = (rule: any, value: any, callback: any) => {
+    if(value === '') {
+      callback(new Error('请再次输入密码'))
+    } else if (value !== regForm.pass) {
+      callback(new Error("两次输入不一致！"))
+    } else {
+      callback()
+    }
+  }
+  const rules = reactive({
+    userName: [{validator: validateName, trigger: 'blur'}],
+    pass: [{validator: validatePass, trigger: 'blur'}],
+    checkPass: [{validator: validatePass2, trigger: 'blur'}],
+  })
 </script>
 <style scoped>
 .Container {

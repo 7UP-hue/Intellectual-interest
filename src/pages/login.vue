@@ -11,15 +11,18 @@
       <div>
         <el-form
           style="max-width: 460px"
+          ref="loginFormRef"
+          :model="loginForm"
+          :rules="rules"
         >
-          <el-form-item>
-            <el-input v-model="userLogin.userName" placeholder="用户名" :prefix-icon="User"/>
+          <el-form-item prop="userName">
+            <el-input v-model="loginForm.userName" placeholder="用户名" :prefix-icon="User"/>
           </el-form-item>
-          <el-form-item>
-            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="userLogin.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
+          <el-form-item prop="password">
+            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="loginForm.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
           </el-form-item>
           <div>
-            <el-button>点此注册</el-button>
+            <el-button type="text" @click="this.$router.push('/register')">还没有账号？点此注册</el-button>
             <el-button type="primary">登录</el-button>
           </div>
         </el-form>
@@ -31,12 +34,22 @@
 import {
   Avatar,User,Unlock
 } from '@element-plus/icons-vue'
-import { ref } from 'vue'
-const userLogin = ref({
+import { reactive, ref } from 'vue'
+import type { FormInstance } from 'element-plus'
+const loginForm = reactive({
   userName: '',
   password: ''
 })
+const ruleFormRef = ref<FormInstance>()
 const show_down = ref(true)
+const rules = reactive({
+  userName: [
+    {required: true, message: '用户名不能为空！', trigger: 'blur'}
+  ],
+  password: [
+    {required: true, message: '密码不能为空！', trigger: 'blur'}
+  ]
+})
 const changeArm = (flag) =>  {
   if( flag===1 ) {
     show_down.value = false
