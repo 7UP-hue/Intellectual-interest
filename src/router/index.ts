@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HelloWorld from '../components/HelloWorld.vue'
+import Home from '../pages/home.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
@@ -8,9 +8,21 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () =>
+      import('../pages/login.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () =>
+      import('../pages/register.vue')
+  },
+  {
     path: '/home',
-    name: 'HelloWorld',
-    component: HelloWorld,
+    name: 'Home',
+    component: Home,
   },
   {
     path: '/aaa',
