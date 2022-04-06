@@ -12,6 +12,7 @@ html,body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  min-width: 1000px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -21,6 +22,6 @@ html,body {
   color: #2c3e50;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #ddd;
 }
 </style>
