@@ -1,3 +1,3 @@
 <template>
-  <div class="bg-gray-500 p-5">123</div>
+  <div class="bg-gray-500 py-5">cj好帅</div>
 </template>
