@@ -7,6 +7,4 @@ import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
 createApp(App).use(router).use(store).mount('#app')
-App.use(ElementPlus, {
-    locale: zhCn,
-  })
+
