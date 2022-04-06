@@ -8,6 +8,11 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+  },
+  {
     path: '/login',
     name: 'login',
     component: () =>
@@ -20,24 +25,46 @@ const routes: Array<RouteRecordRaw> = [
       import('../pages/register.vue')
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/aaa',
-    name: 'aaa',
-    component: () =>
-    import(/* webpackChunkName: "About" */ '../components/aaa.vue'),
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "About" */ '../components/About.vue'),
+    path: '/manage',
+    name: 'manage',
+    component: () => import('../pages/admin/manage.vue'),
+    children: [
+      {
+        path: '',
+        name: 'manage',
+        component: () => import('../pages/admin/home.vue')
+      },
+      {
+        path: '/uploadList',
+        name: 'uploadList',
+        component: () => import('../pages/admin/resource/index.vue'),
+        meta: ['资源管理', '资源列表']
+      },
+      {
+        path: '/uploadRes',
+        name: 'uploadRes',
+        component: () => import('../pages/admin/resource/addResource.vue'),
+        meta: ['资源管理', '上传']
+      },
+      {
+        path: '/userList',
+        name: 'users',
+        component: () => import('../pages/admin/userList/index.vue'),
+        meta: ['用户管理', '用户列表']
+      },
+      {
+        path: '/adminList',
+        name: 'admin',
+        component: () => import('../pages/admin/adminList/index.vue'),
+        meta: ['用户管理', '管理员列表']
+      },
+      {
+        path: '/explain',
+        name: 'explain',
+        component: () => import('../pages/admin/explain.vue'),
+        meta: ['系统管理', '说明']
+      }
+    ]
   },
   {
     path: '/:currentPath(.*)*', // 路由未匹配到，进入这个
@@ -45,6 +72,10 @@ const routes: Array<RouteRecordRaw> = [
       return { path: '/404' }
     },
   },
+  {
+    path: '/404',
+    component: () => import('../pages/404.vue')
+  }
 ]
 const router = createRouter({
   history: createWebHistory(''),
