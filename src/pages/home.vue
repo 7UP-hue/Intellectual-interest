@@ -1,6 +1,6 @@
 <template>
   <my-header></my-header>
-  <div class="mx-50 p-3 bg-white common-layout" style="min-width: 1200px">
+  <div class="mx-50 p-3 bg-white common-layout rounded" style="min-width: 1200px; min-height:885px">
     <el-container>
       <el-header>
         <div class="flex justify-center">
@@ -17,8 +17,8 @@
             <el-col :span="30" class="h-full">
               <el-tabs type="card" class="h-full" style="background-color:rgb(245,247,250)">
                 <el-tab-pane label="初中">
-                  <el-menu background-color="rgb(245,247,250)" class="border">
-                    <el-menu-item index="00" class="flex justify-between"  @click="showDetail">
+                  <el-menu background-color="rgb(245,247,250)" class="border"   @click="showDetail">
+                    <el-menu-item index="00" class="flex justify-between">
                       <span>语文</span>
                       <el-icon><ArrowRight /></el-icon>
                     </el-menu-item>

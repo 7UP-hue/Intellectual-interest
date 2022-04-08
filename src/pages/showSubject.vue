@@ -13,14 +13,7 @@
         </el-col>
         <el-col :span="9">
           <div
-            class="
-              flex-row
-              p-3
-              ml-4
-              items-center
-              rounded
-              border-gray-200 border
-            "
+            class="flex-row p-3 ml-4 items-center rounded border-gray-200 border"
             style="height: 300px"
           >
             <div class="flex justify-around">
@@ -35,6 +28,52 @@
                   <el-icon><user /></el-icon>
                 </span>
                 <span class="font-middle mx-auto"> 今日访客: 46464 </span>
+              </div>
+            </div>
+            <div class="flex mt-4 pb-4 border-b-1">
+              <div class="flex-1">
+                今日更新资料数
+                <div class="text-2xl" style="color: rgb(254,92,49)">2347</div>
+              </div>
+              <div class="border-l-1 flex-1">
+                昨日更新资料数
+                <div class="text-2xl" style="color: rgb(254,92,49)">1244</div>
+              </div>
+            </div>
+            <div class="flex mt-4 text-sm">
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
+                有奖竞猜
+              </div>
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
+                新教材
+              </div>
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
+                加入我们
+              </div>
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
+                帮助中心
+              </div>
+            </div>
+            <div class="flex mt-4 text-sm">
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
+                有奖竞猜
+              </div>
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
+                新教材
+              </div>
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
+                加入我们
+              </div>
+              <div class="flex-1">
+                <div class="text-2xl" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
+                帮助中心
               </div>
             </div>
           </div>
@@ -65,7 +104,7 @@
           </div>
         </div>
         <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/login')"
+          <el-button type="Info" @click="this.$router.push('/home/file')"
             >查看</el-button
           >
         </div>
@@ -136,7 +175,7 @@ import { User } from "@element-plus/icons-vue";
 import { ChatDotSquare } from "@element-plus/icons-vue";
 import { VideoPlay } from "@element-plus/icons-vue";
 import { Notebook } from "@element-plus/icons-vue";
-import { Tickets } from "@element-plus/icons-vue";
+import { Tickets, Shop, Ticket, Sunrise, HelpFilled } from "@element-plus/icons-vue";
 import { reactive, ref } from "vue";
 const imgUrl = reactive([
   "/assets/1.png",

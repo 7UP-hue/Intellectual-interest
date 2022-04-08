@@ -11,8 +11,8 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu class="w-18">
-            <el-dropdown-item><span @click="this.$router.push('/manage');">首页</span></el-dropdown-item>
-            <el-dropdown-item><span @click="this.$router.push('/login');">退出</span></el-dropdown-item>
+            <el-dropdown-item><span @click="$router.push('/manage');">首页</span></el-dropdown-item>
+            <el-dropdown-item><span @click="$router.push('/login');">退出</span></el-dropdown-item>
           </el-dropdown-menu>
         </template>
     </el-dropdown> 

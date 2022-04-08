@@ -33,6 +33,11 @@ const routes: Array<RouteRecordRaw> = [
         name:'ShowDetail',
         path:'showDetail',
         component: () => import('../pages/showDetail.vue')
+      },
+      {
+        name:'File',
+        path:'file',
+        component: () => import('../pages/file.vue')
       }
     ]
   },
