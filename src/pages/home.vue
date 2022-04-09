@@ -121,7 +121,7 @@ import { useRoute, useRouter } from 'vue-router'
 const $route = useRoute()
 const $router = useRouter()
 const showDetail = () => { 
-  $router.push({name: 'ShowDetail'})
+  $router.push({name: 'File'})
   
 }
 </script>

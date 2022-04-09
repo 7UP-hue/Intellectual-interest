@@ -21,7 +21,7 @@ html,body {
   text-align: center;
   color: #2c3e50;
   width: 100%;
-  min-height: 960px;
+  height: 100%;
   background-color: #ddd;
 }
 </style>

@@ -104,7 +104,7 @@
           </div>
         </div>
         <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/home/file')"
+          <el-button type="Info" @click="this.$router.push('/file')"
             >查看</el-button
           >
         </div>
@@ -133,7 +133,7 @@
           </div>
         </div>
         <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/login')"
+          <el-button type="Info" @click="this.$router.push('/file')"
             >查看</el-button
           >
         </div>
@@ -162,7 +162,7 @@
           </div>
         </div>
         <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/login')"
+          <el-button type="Info" @click="this.$router.push('/file')"
             >查看</el-button
           >
         </div>
