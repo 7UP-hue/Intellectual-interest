@@ -16,18 +16,14 @@
             class="flex-row p-3 ml-4 items-center rounded border-gray-200 border"
             style="height: 300px"
           >
-            <div class="flex justify-around">
-              <div>
-                <span class="text-sm mt-1 px-1">
-                  <el-icon><user /></el-icon>
-                </span>
-                <span class="font-middle mx-auto"> 总访客: 46464 </span>
+            <div class="flex mt-2 pb-4 border-b-1">
+              <div class="flex-1">
+                今日访客量
+                <div class="text-2xl" style="color: rgb(254,180,4)">278</div>
               </div>
-              <div>
-                <span class="text-sm mt-1 px-1">
-                  <el-icon><user /></el-icon>
-                </span>
-                <span class="font-middle mx-auto"> 今日访客: 46464 </span>
+              <div class="border-l-1 flex-1">
+                昨日访客量
+                <div class="text-2xl" style="color: rgb(254,180,4)">344</div>
               </div>
             </div>
             <div class="flex mt-4 pb-4 border-b-1">
@@ -40,25 +36,7 @@
                 <div class="text-2xl" style="color: rgb(254,92,49)">1244</div>
               </div>
             </div>
-            <div class="flex mt-4 text-sm">
-              <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
-                有奖竞猜
-              </div>
-              <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
-                新教材
-              </div>
-              <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
-                加入我们
-              </div>
-              <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
-                帮助中心
-              </div>
-            </div>
-            <div class="flex mt-4 text-sm">
+            <div class="flex mt-6 text-sm">
               <div class="flex-1">
                 <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
                 有奖竞猜
@@ -79,92 +57,13 @@
           </div>
         </el-col>
       </div>
-      <div class="bg-gray-200 mt-3 rounded border-gray-300">为你推荐</div>
-      <div
-        class="
-          flex
-          justify-between
-          text-left
-          mt-2
-          pt-2
-          pl-2
-          bg-gray-100
-          border
-          rounded
-          border-gray-300
-        "
-      >
-        <div class="flex">
-          <div class="text-6xl" style="color: rgb(121, 187, 255)">
-            <el-icon><notebook /></el-icon>
-          </div>
-          <div class="flex-row ml-2">
-            <div class="font-semibold">语文知识点PPT</div>
-            <div class="font-semibold mt-4 text-sm">2022年4月2日</div>
-          </div>
-        </div>
-        <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/file')"
-            >查看</el-button
-          >
-        </div>
-      </div>
-      <div
-        class="
-          flex
-          justify-between
-          text-left
-          mt-2
-          pt-2
-          pl-2
-          bg-gray-100
-          border
-          rounded
-          border-gray-300
-        "
-      >
-        <div class="flex">
-          <div class="text-6xl" style="color: rgb(121, 187, 255)">
-            <el-icon><video-play /></el-icon>
-          </div>
-          <div class="flex-row ml-2">
-            <div class="font-semibold">好康的视频</div>
-            <div class="font-semibold mt-4 text-sm">2022年4月3日</div>
-          </div>
-        </div>
-        <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/file')"
-            >查看</el-button
-          >
-        </div>
-      </div>
-      <div
-        class="
-          flex
-          justify-between
-          text-left
-          mt-2
-          pt-2
-          pl-2
-          bg-gray-100
-          border
-          rounded
-          border-gray-300
-        "
-      >
-        <div class="flex">
-          <div class="text-6xl" style="color: rgb(121, 187, 255)">
-            <el-icon><tickets /></el-icon>
-          </div>
-          <div class="flex-row ml-2">
-            <div class="font-semibold">有趣的资料</div>
-            <div class="font-semibold mt-4 text-sm">2022年4月2日</div>
-          </div>
-        </div>
-        <div class="ml-2 pt-3.5 mr-3">
-          <el-button type="Info" @click="this.$router.push('/file')"
-            >查看</el-button
-          >
+      <div class="mt-7 border-t">
+        <div class="text-left px-5 py-3 text-hex-22A3F7">为你推荐</div>
+        <div class="flex justify-around">
+          <span class="rec_item h-153px w-108px border p-1" v-for="item in recommend" :key=item>
+            <img :src=item.url>
+            <div class="text-xs mt-3 text-left">{{item.title}}</div>
+          </span>
         </div>
       </div>
     </div>
@@ -183,6 +82,32 @@ const imgUrl = reactive([
   "/assets/3.png",
   "/assets/4.png",
 ]);
+const recommend = reactive([
+  {
+    url:'/images/427f71cac5da50e2524d7ff8.png',
+    title: '文言文重点知识'
+  },
+  {
+    url:'/images/427f71cac5da50e2524d7ff8.png',
+    title: '文言文重点知识'
+  },
+  {
+    url:'/images/c35e032a312b3169a451a4f8.png',
+    title: '文言文重点知识'
+  },
+  {
+    url:'/images/427f71cac5da50e2524d7ff8.png',
+    title: '文言文重点知识'
+  },
+  {
+    url:'/images/c35e032a312b3169a451a4f8.png',
+    title: '文言文重点知识'
+  },
+  {
+    url:'/images/c35e032a312b3169a451a4f8.png',
+    title: '文言文重点知识'
+  }
+])
 </script>
 <style scoped>
 .el-carousel__item h2 {

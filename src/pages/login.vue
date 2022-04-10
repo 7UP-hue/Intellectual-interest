@@ -62,7 +62,7 @@ const changeArm = (flag: number) =>  {
 <style scoped>
 .Container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: url('../assets/bg-img.jpg');
   background-position: 0 0;
   background-repeat: no-repeat;
