@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="isShow" title="添加管理员" width="30%">
+  <el-dialog v-model="isShow" title="添加管理员" width="30%; margin-top: 75px">
     <el-form>
       <el-form-item label="用户名">
         <el-input placeholder="请输入用户名" v-model="name" />

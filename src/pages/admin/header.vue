@@ -1,10 +1,10 @@
 <template>
-  <div class="head">
+  <div class="head" style="position: fixed; top: 0; left: 240px; width: 83.5%; z-index:100">
     <el-breadcrumb separator-class="el-icon-arrow-right">
          <el-breadcrumb-item :to="{path: 'manage'}">首页</el-breadcrumb-item>
          <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
      </el-breadcrumb>
-    <el-dropdown class="mr-5">
+    <el-dropdown class="mr-10">
         <div style="display: flex;align-items: center;">
           <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
           <span>admin</span>

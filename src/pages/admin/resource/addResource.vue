@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full h-full">                                                                                               
+  <div class="w-full" style="min-height: 650px">                                                                                               
     <my-header></my-header>
-    <div class="m-4 bg-white rounded p-5" style="height: 100%">
+    <div class="m-4 bg-white rounded p-5" style="min-height: 630px; margin-top: 75px">
       <el-form :model="addForm" ref="addForm" class="w-md">
         <el-form-item label="资源名称：">
           <el-input placeholder="请输入资源名称" v-model="addForm.name" />

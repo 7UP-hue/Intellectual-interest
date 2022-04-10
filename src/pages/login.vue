@@ -74,7 +74,9 @@ const changeArm = (flag) =>  {
 }
 .somethingFun {
   position: absolute;
-  background: url('../assets/face.png');
+  background: url('../images/face.png');
+  background-size: 140%;
+  background-position: -22px 0;
   width: 116px;
   height: 92px;
   top: -82px;
@@ -83,15 +85,16 @@ const changeArm = (flag) =>  {
 }
 .armUpRight {
   position: absolute;
-  background: url('../assets/arm-up-right.png');
+  background: url('../images/arm-up-right.png');
+  background-size: 110%;
+  background-position: 0 30px;
   width: 52px;
-  height: 41px;
-  bottom: 11px;
+  height: 64px;
+  bottom: 5px;
   right: 5px;
   opacity: 0;
-  background-position: 0 25px;
   background-repeat: no-repeat;
-  transform: translateX(57px) scale(.8);
+  transform: translateX(47px) scale(.5);
   transform-origin: 0 40px;
   transition: background-position .3s ease-out,
               transform .3s ease-out,
@@ -106,15 +109,16 @@ const changeArm = (flag) =>  {
 }
 .armUpLeft {
   position: absolute;
-  background: url('../assets/arm-up-left.png');
+  background: url('../images/arm-up-left.png');
+  background-size: 110%;
   width: 52px;
-  height: 41px;
-  bottom: 11px;
-  left: -3px;
+  height: 64px;
+  bottom: 4px;
+  left: 15px;
   opacity: 0;
-  background-position: 0 25px;
+  background-position: 0 10px;
   background-repeat: no-repeat;
-  transform: translateX(-34px) scale(.8);
+  transform: translateX(-27px) translateY(7px) scale(.5);
   transform-origin: 0 40px;
   transition: background-position .3s ease-out,
               transform .3s ease-out,
@@ -122,18 +126,20 @@ const changeArm = (flag) =>  {
 }
 .armUpLeftAfter {
   opacity: 1;
+  left: 0px;
   transform: scale(1);
-  background-position: 0 0;
+  background-position: -5px 0px;
   transition: background-position .3s ease-out,
               transform .3s ease-out;
 }
 .armDownRight {
   position: absolute;
-  background: url(../assets/arm-down-right.png);
-  width: 43px;
-  height: 26px;
-  bottom: 1px;
-  right: -40px;
+  background: url(../images/arm-down-right.png);
+  background-size: 100%;
+  width: 46px;
+  height: 59px;
+  bottom: -24px;
+  right: -19px;
   transition: transform .3s ease-out;
   opacity: 1;
 }
@@ -144,11 +150,12 @@ const changeArm = (flag) =>  {
 }
 .armDownLeft {
   position: absolute;
-  background: url(../assets/arm-down-left.png);
-  width: 43px;
-  height: 25px;
-  bottom: 2px;
-  left: -34px;
+  background: url(../images/arm-down-left.png);
+  background-size: 100%;
+  width: 46px;
+  height: 59px;
+  bottom: -26px;
+  left: -16px;
   transition: transform .3s ease-out;
   opacity: 1;
 }
@@ -161,7 +168,9 @@ const changeArm = (flag) =>  {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: url(../assets/eyes.png);
+  background: url(../images/eyes.png);
+  background-size: 140%;
+  background-position: -22px 0;
   opacity: 0;
   transition: opacity .3s ease-out;
 }
