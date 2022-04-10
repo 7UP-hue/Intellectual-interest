@@ -1,6 +1,6 @@
 <template>
   <el-container style="height: 100%">
-    <el-aside style="background-color: #6b7280; height: 100%; width: 240px">
+    <el-aside style="background-color: #6b7280; height: 100vh; width: 240px; position: fixed">
       <div class="text-xl text-white font-bold h-60px" style="background-color: #06b6d4; line-height: 60px">智趣科普后台管理</div>
       <el-menu
         active-text-color="#ffd04b"
@@ -32,7 +32,7 @@
         </el-sub-menu>
       </el-menu>
     </el-aside>
-    <el-main style="padding: 0">
+    <el-main style="padding: 0; margin-left:240px">
       <router-view></router-view>
     </el-main>
   </el-container>
