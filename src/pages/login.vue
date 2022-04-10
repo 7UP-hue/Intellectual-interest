@@ -50,7 +50,7 @@ const rules = reactive({
     {required: true, message: '密码不能为空！', trigger: 'blur'}
   ]
 })
-const changeArm = (flag) =>  {
+const changeArm = (flag: number) =>  {
   if( flag===1 ) {
     show_down.value = false
   }
