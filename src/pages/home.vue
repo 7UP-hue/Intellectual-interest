@@ -1,6 +1,6 @@
 <template>
   <my-header></my-header>
-  <div class="mx-50 p-3 bg-white common-layout rounded" style="min-width: 1200px; min-height:885px">
+  <div class="p-3 bg-white common-layout rounded w-1173px mx-auto" style="min-width: 1024px; min-height:685px">
     <el-container>
       <el-header>
         <div class="flex justify-center">
@@ -11,7 +11,7 @@
         </div>
       </el-header>
       <el-container>
-        <el-aside width="200px" class="mt-4">
+        <el-aside width="200px">
           <div class="h-full">
             <!-- <el-row :gutter="1"> -->
             <el-col :span="30" class="h-full">
@@ -101,7 +101,7 @@
             <!-- </el-row> -->
           </div>
         </el-aside>
-        <el-main>
+        <el-main style="padding: 0">
           <router-view></router-view>
         </el-main>
       </el-container>
