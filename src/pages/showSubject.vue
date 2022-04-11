@@ -18,28 +18,28 @@
           >
             <div class="flex mt-2 pb-4 border-b-1">
               <div class="flex-1">
-                今日访客量
+                总访客量
                 <div class="text-2xl" style="color: rgb(254,180,4)">278</div>
               </div>
               <div class="border-l-1 flex-1">
-                昨日访客量
+                今日访客量
                 <div class="text-2xl" style="color: rgb(254,180,4)">344</div>
               </div>
             </div>
             <div class="flex mt-4 pb-4 border-b-1">
               <div class="flex-1">
-                今日更新资料数
+                总资料数
                 <div class="text-2xl" style="color: rgb(254,92,49)">2347</div>
               </div>
               <div class="border-l-1 flex-1">
-                昨日更新资料数
+                今日更新资料数
                 <div class="text-2xl" style="color: rgb(254,92,49)">1244</div>
               </div>
             </div>
             <div class="flex mt-6 text-sm">
               <div class="flex-1">
                 <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
-                有奖竞猜
+                党史学习
               </div>
               <div class="flex-1">
                 <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
@@ -60,7 +60,7 @@
       <div class="mt-7 border-t">
         <div class="text-left px-5 py-3 text-hex-22A3F7">为你推荐</div>
         <div class="flex justify-around">
-          <span class="rec_item h-153px w-108px border p-1" v-for="item in recommend" :key=item>
+          <span class="rec_item h-153px w-108px border p-1" v-for="item in recommend" :key=item @click="showDetail">
             <img :src=item.url>
             <div class="text-xs mt-3 text-left">{{item.title}}</div>
           </span>
@@ -76,12 +76,19 @@ import { VideoPlay } from "@element-plus/icons-vue";
 import { Notebook } from "@element-plus/icons-vue";
 import { Tickets, Shop, Ticket, Sunrise, HelpFilled } from "@element-plus/icons-vue";
 import { reactive, ref } from "vue";
+import { useRoute, useRouter } from 'vue-router'
+const $route = useRoute()
+const $router = useRouter()
 const imgUrl = reactive([
   "/assets/1.png",
   "/assets/2.png",
   "/assets/3.png",
   "/assets/4.png",
 ]);
+const showDetail = () => { 
+  $router.push({name: 'File'})
+  
+}
 const recommend = reactive([
   {
     url:'/images/427f71cac5da50e2524d7ff8.png',

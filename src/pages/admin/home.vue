@@ -20,7 +20,7 @@
   import { onMounted, reactive, ref } from 'vue';
  
   // 按需引入echarts
-  import * as echarts from 'echarts';
+import * as echarts from 'echarts';
 import func from 'vue-temp/vue-editor-bridge';
    // 图表数据
   const juniorData = reactive([
