@@ -4,10 +4,10 @@
     <div class="mx-4 bg-white rounded" style="min-height: 630px; margin-top: 75px">
       <div class="pt-5 text-left pl-3 text-xl font-bold">智趣科普后台系统</div>
       <div class="flex justify-around mt-3 p-3 text-lg">
-        <span class="adminMsg">用户总数<div class="digit">1354</div></span>
-        <span class="adminMsg">总发布视频数<div class="digit">1354</div></span>
+        <span class="adminMsg">用户总数<div class="digit">2022</div></span>
+        <span class="adminMsg">总发布视频数<div class="digit">1024</div></span>
         <span class="adminMsg">总发布文档数<div class="digit">1354</div></span>
-        <span class="adminMsg">总访客量<div class="digit">1354</div></span>
+        <span class="adminMsg">总访客量<div class="digit">4399</div></span>
         <span class="adminMsg">今日访客量<div class="digit">1354</div></span>
       </div>
       <div class="w-full h-300px mt-5" ref="oneRef" id="resChart"></div>
