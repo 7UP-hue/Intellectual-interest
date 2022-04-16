@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@element-plus/icons-vue': ^1.1.4
   '@vitejs/plugin-vue': ^2.2.0
+  axios: ^0.26.1
   echarts: ^5.3.2
   element-plus: ^2.1.7
   element-ui: ^2.15.6
@@ -21,6 +22,7 @@ specifiers:
 
 dependencies:
   '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/1.1.4_vue@3.2.31
+  axios: registry.npmmirror.com/axios/0.26.1
   echarts: registry.npmmirror.com/echarts/5.3.2
   element-plus: registry.npmmirror.com/element-plus/2.1.7_vue@3.2.31
   element-ui: registry.npmmirror.com/element-ui/2.15.6_vue@3.2.31
@@ -477,6 +479,16 @@ packages:
     resolution: {integrity: sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/async-validator/-/async-validator-4.0.7.tgz}
     name: async-validator
     version: 4.0.7
+    dev: false
+
+  registry.npmmirror.com/axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/axios/-/axios-0.26.1.tgz}
+    name: axios
+    version: 0.26.1
+    dependencies:
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.9
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   registry.npmmirror.com/babel-helper-vue-jsx-merge-props/2.0.3:
@@ -1031,6 +1043,18 @@ packages:
     dependencies:
       to-regex-range: registry.npmmirror.com/to-regex-range/5.0.1
     dev: true
+
+  registry.npmmirror.com/follow-redirects/1.14.9:
+    resolution: {integrity: sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.14.9.tgz}
+    name: follow-redirects
+    version: 1.14.9
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   registry.npmmirror.com/fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
