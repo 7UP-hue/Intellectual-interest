@@ -10,7 +10,7 @@
           </div>
         </div>
       </el-header>
-      <el-container>
+      <el-container class= "shadow-lg shadow-gray-300">
         <el-aside width="200px">
           <div class="h-full">
             <!-- <el-row :gutter="1"> -->

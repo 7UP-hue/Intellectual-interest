@@ -2,7 +2,7 @@
   <div class="w-full" style="min-height: 650px">
     <my-header></my-header>
     <div
-      class="m-4 bg-white rounded p-5"
+      class="m-4 bg-white rounded p-5 pl-20"
       style="min-height: 630px; margin-top: 75px"
     >
       <el-form

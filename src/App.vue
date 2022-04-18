@@ -21,6 +21,5 @@ html,body {
   color: #2c3e50;
   width: 100%;
   min-height: 724px;
-  background-color: rgb(242,242,242);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full" style="min-height: 650px">
+  <div class="w-full" style="height: 100%">
     <my-header></my-header>
-    <div class="mx-4 bg-white rounded" style="min-height: 630px; margin-top: 75px">
+    <div class="mx-4 bg-white rounded border shadow-lg shadow-gray-300" style="min-height: 630px; margin-top: 75px">
       <div class="pt-5 text-left pl-3 text-xl font-bold">智趣科普后台系统</div>
       <div class="flex justify-around mt-3 p-3 text-lg">
         <span class="adminMsg">用户总数<div class="digit">2022</div></span>
