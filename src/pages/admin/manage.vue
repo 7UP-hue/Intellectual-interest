@@ -26,6 +26,11 @@
           <el-menu-item index="userList"><el-icon><user-filled /></el-icon>用户列表</el-menu-item>
           <el-menu-item index="adminList"><el-icon><guide /></el-icon>管理员列表</el-menu-item>
         </el-sub-menu>
+        <el-sub-menu index="classManage">
+          <template #title><el-icon><help-filled /></el-icon>班级管理</template>
+          <el-menu-item index="classList"><el-icon><flag /></el-icon>班级列表</el-menu-item>
+          <el-menu-item index="myManage"><el-icon><avatar /></el-icon>我管理的</el-menu-item>
+        </el-sub-menu>
         <el-sub-menu index="sysManage">
           <template #title><el-icon><histogram /></el-icon>系统管理</template>
           <el-menu-item index="explain"><el-icon><warning-filled /></el-icon>说明</el-menu-item>
@@ -40,7 +45,7 @@
 <script lang="ts" setup>
   import { useRouter, useRoute } from 'vue-router'
   import { HomeFilled, Document, Orange, Histogram, Fold, Calendar,
-           VideoCameraFilled, UserFilled, Guide, WarningFilled, FolderAdd
+           VideoCameraFilled, UserFilled, Guide, WarningFilled, FolderAdd, Avatar, HelpFilled, Flag,
    } from '@element-plus/icons-vue'
   const $route = useRoute()
   const $router = useRouter()

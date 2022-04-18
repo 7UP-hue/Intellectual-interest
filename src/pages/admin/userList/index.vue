@@ -22,6 +22,7 @@
           <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
           <el-table-column prop="action" label="操作" align="center">
             <template #default>
+              <el-button type="text" size="small">设为管理员</el-button>
               <el-button type="text" size="small">删除</el-button>
               <el-button type="text" size="small" @click="changePsd()">修改密码</el-button>
             </template>

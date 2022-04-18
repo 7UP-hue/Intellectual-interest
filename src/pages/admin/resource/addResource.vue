@@ -85,7 +85,7 @@
           >
             <el-button type="primary">点击上传</el-button>
             <template #tip>
-              <div class="mt-2 text-8px">文件大小不超过1GB</div>
+              <div class="mt-2 text-8px">小提示：上传的文件大小不能超过1GB哟！</div>
             </template>
           </el-upload>
         </el-form-item>
@@ -138,7 +138,7 @@ const validatePass = (rule: any, value: any, callback: any) => {
 const userFile = ref()
 const fileChange = () => {
   if(fileList.value.length > 0) {
-    userFile.value.clearValidate()
+    userFile.value.clearValidate()//上传成功去除校验
   }
   else {
     userFile.value.validate()

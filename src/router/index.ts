@@ -86,6 +86,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'explain',
         component: () => import('../pages/admin/explain.vue'),
         meta: ['系统管理', '说明']
+      },
+      {
+        path:'/classList',
+        name:'classList',
+        component: () => import('../pages/admin/classList/index.vue'),
+        meta: ['班级管理', '班级列表']
       }
     ]
   },
