@@ -92,6 +92,12 @@ const routes: Array<RouteRecordRaw> = [
         name:'classList',
         component: () => import('../pages/admin/classList/index.vue'),
         meta: ['班级管理', '班级列表']
+      },
+      {
+        path:'/management',
+        name:'management',
+        component: () => import('../pages/admin/classList/management.vue'),
+        meta: ['班级管理', '我管理的']
       }
     ]
   },

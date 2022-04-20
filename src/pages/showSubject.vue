@@ -39,7 +39,7 @@
             <div class="flex mt-6 text-sm">
               <div class="flex-1">
                 <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
-                党史学习
+                加入班级
               </div>
               <div class="flex-1">
                 <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
