@@ -36,7 +36,7 @@
 <script lang="ts" setup>
   import myHeader from '../header.vue'
   import editPsd from './editPsd.vue'
-  import { ref } from 'vue'
+  import { ref, reactive  } from 'vue'
   import { Search, Delete, Upload, Plus } from '@element-plus/icons-vue'
   const editpsd = ref(null);
   const changePsd = () => {
@@ -46,7 +46,6 @@
   const newAdmin = () => {
     (addadmin as any).value.add();
   }
-  import { reactive } from 'vue'
   const adminList = reactive([
     {adminName: '张三', adminPsd: '123456', createTime: '2021.03.04'},
     {adminName: '李四', adminPsd: '123456', createTime: '2021.03.04'},

@@ -38,19 +38,19 @@
             </div>
             <div class="flex mt-6 text-sm">
               <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
+                <div class="text-2xl cursor-pointer" style="color: rgb(254,65,56)" @click="Jclass()"><el-icon><shop /></el-icon></div>
                 加入班级
               </div>
               <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
-                新教材
+                <div class="text-2xl cursor-pointer" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
+                讨论区
               </div>
               <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
+                <div class="text-2xl cursor-pointer" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
                 加入我们
               </div>
               <div class="flex-1">
-                <div class="text-2xl" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
+                <div class="text-2xl cursor-pointer" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
                 帮助中心
               </div>
             </div>
@@ -60,13 +60,14 @@
       <div class="mt-7 border-t">
         <div class="text-left px-5 py-3 text-hex-22A3F7">为你推荐</div>
         <div class="flex justify-around">
-          <span class="rec_item h-153px w-108px border p-1" v-for="item in recommend" :key=item @click="showDetail">
+          <span class="rec_item h-153px w-108px border p-1 cursor-pointer" v-for="item in recommend" :key=item @click="showDetail">
             <img :src=item.url>
             <div class="text-xs mt-3 text-left">{{item.title}}</div>
           </span>
         </div>
       </div>
     </div>
+    <join-class ref="joinclass"></join-class>
   </div>
 </template>
 <script lang="ts" setup>
@@ -77,8 +78,13 @@ import { Notebook } from "@element-plus/icons-vue";
 import { Tickets, Shop, Ticket, Sunrise, HelpFilled } from "@element-plus/icons-vue";
 import { reactive, ref } from "vue";
 import { useRoute, useRouter } from 'vue-router'
+import joinClass from './joinClass.vue'
 const $route = useRoute()
 const $router = useRouter()
+const joinclass = ref(false)
+const Jclass = () => {
+    (joinclass as any).value.join();
+  }
 const imgUrl = reactive([
   "/assets/1.png",
   "/assets/2.png",

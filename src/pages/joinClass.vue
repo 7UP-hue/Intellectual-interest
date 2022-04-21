@@ -1,11 +1,8 @@
 <template>
-  <el-dialog v-model="isShow" title="添加班级" width="30%; margin-top: 75px" draggable>
+  <el-dialog v-model="isShow" title="加入班级" width="30%" draggable>
     <el-form>
-      <el-form-item label="班级名">
-        <el-input placeholder="请输入班级名" v-model="name" />
-      </el-form-item>
-      <el-form-item label="管理者">
-        <el-select v-model="value" placeholder="请选择一个管理者">
+      <el-form-item label="班级名:">
+        <el-select v-model="value" placeholder="请选择一个班级加入">
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -27,18 +24,18 @@
   import { ref } from 'vue'
   const isShow = ref(false)
   const value = ref('')
-  const add = () => {
+  const join = () => {
     isShow.value = true;
   }
   const options = [
   {
-    value: '张三',
-    label: '张三',
+    value: '一班',
+    label: '一班',
   },
   {
-    value: '李四',
-    label: '李四',
+    value: '二班',
+    label: '二班',
   }
 ]
-  defineExpose({add})
+  defineExpose({join})
 </script>

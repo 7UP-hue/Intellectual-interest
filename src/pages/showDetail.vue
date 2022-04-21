@@ -17,7 +17,7 @@
         flex
         justify-between
         text-left
-        mt-2
+        m-2
         pt-2
         pl-2
         bg-gray-100
