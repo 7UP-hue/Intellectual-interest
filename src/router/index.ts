@@ -25,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../pages/file.vue')
   },
   {
+    path:'/discussion',
+    name:'discussion',
+    component: () => import('../pages/discussion.vue')
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import('../pages/home.vue'),
@@ -39,6 +44,7 @@ const routes: Array<RouteRecordRaw> = [
         path:'showDetail',
         component: () => import('../pages/showDetail.vue')
       }
+    
     ]
   },
   {

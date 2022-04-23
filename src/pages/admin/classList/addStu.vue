@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="isShow" title="添加学生" width="30%; margin-top: 75px">
+  <el-dialog v-model="isShow" title="添加学生" width="30%; margin-top: 75px" draggable>
     <el-form>
         <div class="flex">
              <el-form-item label="用户名：">

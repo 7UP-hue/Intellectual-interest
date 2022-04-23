@@ -42,7 +42,7 @@
                 加入班级
               </div>
               <div class="flex-1">
-                <div class="text-2xl cursor-pointer" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
+                <div class="text-2xl cursor-pointer" style="color: rgb(34,163,247)" @click="showDiscussion"><el-icon><tickets /></el-icon></div>
                 讨论区
               </div>
               <div class="flex-1">
@@ -93,6 +93,10 @@ const imgUrl = reactive([
 ]);
 const showDetail = () => { 
   $router.push({name: 'File'})
+  
+}
+const showDiscussion = () => { 
+  $router.push({name: 'discussion'})
   
 }
 const recommend = reactive([

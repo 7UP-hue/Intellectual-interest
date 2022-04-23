@@ -95,7 +95,6 @@
               v-model="dialogVisible"
               title="提示"
               width="30%"
-              :before-close="handleClose"
             >
               <span>是否确定删除这条留言</span>
               <template #footer>
@@ -138,13 +137,4 @@ const commentList = reactive([
 ]);
 const dialogVisible = ref(false);
 
-const handleClose = (done: () => void) => {
-  ElMessageBox.confirm("Are you sure to close this dialog?")
-    .then(() => {
-      done();
-    })
-    .catch(() => {
-      // catch error
-    });
-};
 </script>
