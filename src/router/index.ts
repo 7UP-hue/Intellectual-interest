@@ -38,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
+    path:'/discussion',
+    name:'discussion',
+    component: () => import('../pages/discussion.vue')
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import('../pages/home.vue'),
@@ -60,6 +65,7 @@ const routes: Array<RouteRecordRaw> = [
           roles: null
         },
       }
+    
     ]
   },
   {
@@ -135,6 +141,16 @@ const routes: Array<RouteRecordRaw> = [
            needAuth: true ,
            roles: 'teacher'
         }
+      },
+      {
+        path:'/management',
+        name:'management',
+        component: () => import('../pages/admin/classList/management.vue'),
+        meta: {
+          title: ['班级管理', '我管理的'] ,
+          needAuth: true ,
+          roles: 'teacher'
+       }
       }
     ]
   },

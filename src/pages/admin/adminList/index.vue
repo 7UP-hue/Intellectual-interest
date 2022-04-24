@@ -39,7 +39,7 @@
 </template>
 <script lang="ts" setup>
   import myHeader from '../header.vue'
-  import editPsd from './editPsd.vue'
+  import editPsd from '../mixin/editPsd.vue'
   import addAdmin from './addAdmin.vue'
   import { ref } from 'vue'
   import { Search, Delete, Upload, Plus } from '@element-plus/icons-vue'

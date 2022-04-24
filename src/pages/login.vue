@@ -23,7 +23,7 @@
           </el-form-item>
           <div>
             <el-button type="text" @click="this.$router.push('/register')">还没有账号？点此注册</el-button>
-            <el-button type="primary">登录</el-button>
+            <el-button type="primary" @click="register">登录</el-button>
           </div>
         </el-form>
       </div>
@@ -36,6 +36,16 @@ import {
 } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
+import axios from 'axios'
+const register = () => {
+  axios.post('localhost:8080/register',{
+      username: '123',
+      password: '123'
+  })
+  .then(res => {
+    console.log(res)
+  })
+}
 const loginForm = reactive({
   userName: '',
   password: ''

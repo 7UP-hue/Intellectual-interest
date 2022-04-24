@@ -23,13 +23,13 @@
         </el-sub-menu>
         <el-sub-menu index="userManage">
           <template #title><el-icon><orange /></el-icon>用户管理</template>
-          <el-menu-item index="userList"><el-icon><user-filled /></el-icon>用户列表</el-menu-item>
-          <el-menu-item index="adminList"><el-icon><guide /></el-icon>管理员列表</el-menu-item>
+          <el-menu-item index="userList"><el-icon><user-filled /></el-icon>学生列表</el-menu-item>
+          <el-menu-item index="adminList"><el-icon><guide /></el-icon>老师列表</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="classManage">
           <template #title><el-icon><help-filled /></el-icon>班级管理</template>
           <el-menu-item index="classList"><el-icon><flag /></el-icon>班级列表</el-menu-item>
-          <el-menu-item index="myManage"><el-icon><avatar /></el-icon>我管理的</el-menu-item>
+          <el-menu-item index="management"><el-icon><avatar /></el-icon>我管理的</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="sysManage">
           <template #title><el-icon><histogram /></el-icon>系统管理</template>

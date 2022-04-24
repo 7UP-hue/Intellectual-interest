@@ -1,20 +1,15 @@
 <template>
   <div>
-    <!-- 导航栏 -->
-    <div>
-      <el-menu
-        :default-active="activeIndex"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
-      >
-        <el-menu-item index="1">当前选择</el-menu-item>
-        <el-sub-menu index="2">
-          <template #title>文件类型</template>
-          <el-menu-item index="2-1">文档</el-menu-item>
-          <el-menu-item index="2-2">视频</el-menu-item>
-        </el-sub-menu>
-      </el-menu>
+    <div class="text-left">
+      <span>文件类型</span>
+      <el-select v-model="value" class="m-2" placeholder="默认" size="large" :filter-method="selectMethod">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+    />
+    </el-select>
     </div>
     <!-- 展示列表 -->
     <div v-for="(item, index) in subjectList" :key="index" 
@@ -22,7 +17,7 @@
         flex
         justify-between
         text-left
-        mt-2
+        m-2
         pt-2
         pl-2
         bg-gray-100
@@ -55,7 +50,7 @@ import { ChatDotSquare } from "@element-plus/icons-vue";
 import { VideoPlay } from "@element-plus/icons-vue";
 import { Notebook } from "@element-plus/icons-vue";
 import { Tickets } from "@element-plus/icons-vue";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useRoute, useRouter } from 'vue-router'
 const $route = useRoute()
 const $router = useRouter()
@@ -81,4 +76,15 @@ const subjectList = reactive(
     }
   ]
 );
+const value = ref('')
+const options = [
+  {
+    value: '文档',
+    label: '文档',
+  },
+  {
+    value: '视频',
+    label: '视频',
+  }
+]
 </script>
