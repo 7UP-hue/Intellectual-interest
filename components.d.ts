@@ -27,6 +27,8 @@ declare module 'vue' {
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElMenuItemGrop: typeof import('element-plus/es')['ElMenuItemGrop']
+    ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
@@ -39,6 +41,7 @@ declare module 'vue' {
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Header: typeof import('./src/components/header.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    InfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
   }
 }
 

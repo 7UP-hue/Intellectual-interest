@@ -95,14 +95,13 @@
               v-model="dialogVisible"
               title="提示"
               width="30%"
+              :before-close="handleClose"
             >
               <span>是否确定删除这条留言</span>
               <template #footer>
                 <span class="dialog-footer">
                   <el-button @click="dialogVisible = false">取消</el-button>
-                  <el-button type="primary" @click="dialogVisible = false"
-                    >确认</el-button
-                  >
+                  <el-button type="primary" @click="dialogVisible = false">确认</el-button>
                 </span>
               </template>
             </el-dialog>
@@ -136,5 +135,8 @@ const commentList = reactive([
   },
 ]);
 const dialogVisible = ref(false);
+const handleClose = () => {
+  dialogVisible.value = false;
+};
 
 </script>
