@@ -1,13 +1,23 @@
-import axios, { ResponseData } from './index'
-import { AxiosPromise } from 'axios'
-interface LoginReqArguInterface {
-  user_name: string;
-  password: number|string
-}
-export const loginReq = (data: LoginReqArguInterface): AxiosPromise<ResponseData> => {
-  return axios.request({
-    url: '/api/user/login',
-    data,
-    method: 'POST'
+import request from '../utils/request'
+// 登录
+export function userLogin(data: any) {
+  return request({
+    url: 'login',
+    method: 'post',
+    data: data
   })
 }
+// 登出
+export function userLogout() {
+  return request({
+    url: 'logout',
+    method: 'get',
+  })
+}
+ export function getUserInfo(data: any) {
+  return request({
+    url: 'getInfo',
+    method: 'put',
+    data
+  })
+ }

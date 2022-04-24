@@ -2,7 +2,7 @@
   <div class="head" style="position: fixed; top: 0; left: 240px; width: 83.5%; z-index:100">
     <el-breadcrumb separator-class="el-icon-arrow-right">
          <el-breadcrumb-item :to="{path: 'manage'}">首页</el-breadcrumb-item>
-         <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
+         <el-breadcrumb-item v-for="(item, index) in $route.meta.title" :key="index">{{item}}</el-breadcrumb-item>
      </el-breadcrumb>
     <el-dropdown class="mr-10">
         <div style="display: flex;align-items: center;">
