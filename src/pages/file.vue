@@ -81,30 +81,19 @@
             <div class="flex justify-between">
               <div class="mt-3">{{ item.content }}</div>
               <div class="mr-2 mt-2">
-                <el-button
-                  type="danger"
-                  :icon="Delete"
-                  circle
-                  plain
-                  size="small"
-                  @click="dialogVisible = true"
-                />
+                <el-popconfirm title="是否确定删除这条留言">
+                  <template #reference>
+                    <el-button
+                      type="danger"
+                      :icon="Delete"
+                      circle
+                      plain
+                      size="small"
+                    ></el-button>
+                  </template>
+                </el-popconfirm>
               </div>
             </div>
-            <el-dialog
-              v-model="dialogVisible"
-              title="提示"
-              width="30%"
-              :before-close="handleClose"
-            >
-              <span>是否确定删除这条留言</span>
-              <template #footer>
-                <span class="dialog-footer">
-                  <el-button @click="dialogVisible = false">取消</el-button>
-                  <el-button type="primary" @click="dialogVisible = false">确认</el-button>
-                </span>
-              </template>
-            </el-dialog>
           </div>
         </div>
       </div>
@@ -135,8 +124,5 @@ const commentList = reactive([
   },
 ]);
 const dialogVisible = ref(false);
-const handleClose = () => {
-  dialogVisible.value = false;
-};
 
 </script>
