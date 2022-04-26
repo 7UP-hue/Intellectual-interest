@@ -1,7 +1,7 @@
 // 封装axios
 import axios from 'axios';
 import store from '@/store'
-import { Message } from 'element-ui';
+// import { Message } from 'element-ui';
 import { servicesVersion } from 'typescript';
 import { getToken, removeToken, removeRoles, removeName, removeAvatar } from './cookies'
 // 创建axios实例
@@ -27,7 +27,7 @@ service.interceptors.response.use(
     (response) => {
         const res = response.data;
         if(res.header.code !== 0) {
-            Message.error(res.heaser.msg || "Error") 
+            // Message.error(res.heaser.msg || "Error") 
             return Promise.reject(new Error(res.header.msg || "Error"))
         }
         return res;
