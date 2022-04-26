@@ -1,7 +1,14 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosPromise, AxiosResponse } from "axios";
 import config from "@/config"; //@代表src一级目录，是我们在vite.config.ts文件里配置的
 const {api: {devApiBaseUrl, proApiBaseUrl}} = config;
-const apiBaseUrl = process.env.NODE_ENV === "production" ? proApiBaseUrl : devApiBaseUrl;//process.env.NODE_ENV是vue服务内置的环境变量，有两个值，当本地开发时是development，当打包时是production
+//process.env.NODE_ENV是vue服务内置的环境变量，有两个值，当本地开发时是development，当打包时是production
+const apiBaseUrl = process.env.NODE_ENV === 'production' ? proApiBaseUrl : devApiBaseUrl;
+export interface ResponseData {
+    // 这里的data是接口返回的数据，是一个对象
+    code: number;
+    data?: any;
+    msg: string;
+}
 class HttpRequest {// 定义一个接口请求类，用于创建一个axios请求实例
     constructor(public baseUrl: string) {// 这个类接收一个字符串参数，是接口请求的基本路径
         this.baseUrl = baseUrl;
@@ -9,10 +16,10 @@ class HttpRequest {// 定义一个接口请求类，用于创建一个axios请�
 
 
     public request(options: AxiosRequestConfig): AxiosPromise {
-        const instance: AxiosInstance = axios.create();
-        options = this.mergeConfig(options)
-        this.interceptors(instance, options.url)
-        return instance(options)
+        const instance: AxiosInstance = axios.create();// 创建一个axios实例
+        options = this.mergeConfig(options) // 合并配置
+        this.interceptors(instance, options.url) //调用interceptors方法使拦截器生效
+        return instance(options)    // 返回AxiosPromise
     }
     private interceptors(instance: AxiosInstance, url?: string) {// 定义这个函数用于添加全局请求和响应拦截逻辑
              // 在这里添加请求和响应拦截
@@ -31,11 +38,12 @@ class HttpRequest {// 定义一个接口请求类，用于创建一个axios请�
                     console.log(msg)// 如果不是0，则打印错误信息，这里可以使用消息窗提示
                 }
                 return res//返回数据
-            }, error => {// 这里是遇到报错的回调
+            }, 
+            (error) => {// 这里是遇到报错的回调
                 return Promise.reject(error)
             })
     }
-    private mergeConfig(options: AxiosRequestConfig): AxiosRequestConfig {
+    private mergeConfig(options: AxiosRequestConfig): AxiosRequestConfig {//这个函数用于合并配置
         return Object.assign({ baseUrl: this.baseUrl }, options);
     }
 }

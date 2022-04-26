@@ -193,7 +193,8 @@ router.beforeEach((to, from, next) => {
     // 如果to需要鉴权
     if (to.meta.needAuth) {
       // 获取userInfo
-      next( { path: "/login" });
+      // next( { path: "/login" });
+      next()
       // const userInfo = store.getters.userInfo;
       // // 如果未登录
       // if (!userInfo.name || !userInfo.roles.length) {
