@@ -37,20 +37,20 @@
               </div>
             </div>
             <div class="flex mt-6 text-sm">
-              <div class="flex-1">
-                <div class="text-2xl cursor-pointer" style="color: rgb(254,65,56)" @click="Jclass()"><el-icon><shop /></el-icon></div>
+              <div class="flex-1 cursor-pointer hover:text-hex-409EFF" @click="Jclass()">
+                <div class="text-2xl" style="color: rgb(254,65,56)"><el-icon><shop /></el-icon></div>
                 加入班级
               </div>
-              <div class="flex-1">
-                <div class="text-2xl cursor-pointer" style="color: rgb(34,163,247)" @click="showDiscussion"><el-icon><tickets /></el-icon></div>
+              <div class="flex-1 cursor-pointer hover:text-hex-409EFF" @click="showDiscussion">
+                <div class="text-2xl" style="color: rgb(34,163,247)"><el-icon><tickets /></el-icon></div>
                 讨论区
               </div>
-              <div class="flex-1">
-                <div class="text-2xl cursor-pointer" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
+              <div class="flex-1 cursor-pointer hover:text-hex-409EFF">
+                <div class="text-2xl" style="color: rgb(254,180,4)"><el-icon><sunrise /></el-icon></div>
                 加入我们
               </div>
-              <div class="flex-1">
-                <div class="text-2xl cursor-pointer" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
+              <div class="flex-1 cursor-pointer hover:text-hex-409EFF">
+                <div class="text-2xl" style="color: rgb(253,144,84"><el-icon><help-filled /></el-icon></div>
                 帮助中心
               </div>
             </div>
@@ -67,6 +67,17 @@
         </div>
       </div>
     </div>
+    <el-dialog
+      width=25%
+      title="提示"
+      v-model="loginVisible"
+    >
+      <span class="text-xl">请登录后查看</span>
+      <template #footer>
+        <el-button @click="loginVisible = false">取消</el-button>
+        <el-button @click="toLogin()" type="primary">确定</el-button>
+      </template>
+    </el-dialog>
     <join-class ref="joinclass"></join-class>
   </div>
 </template>
@@ -79,6 +90,7 @@ import { Tickets, Shop, Ticket, Sunrise, HelpFilled } from "@element-plus/icons-
 import { reactive, ref } from "vue";
 import { useRoute, useRouter } from 'vue-router'
 import joinClass from './joinClass.vue'
+import store from "@/store";
 const $route = useRoute()
 const $router = useRouter()
 const joinclass = ref(false)
@@ -93,11 +105,21 @@ const imgUrl = reactive([
 ]);
 const showDetail = () => { 
   $router.push({name: 'File'})
-  
 }
-const showDiscussion = () => { 
-  $router.push({name: 'discussion'})
-  
+const loginVisible = ref(false)
+const showDiscussion = () => {
+  const userInfo = store.getters.userInfo;
+  console.log(userInfo)
+  // // 判断用户是否已经登录
+  if(userInfo.token) {
+    $router.push({name: 'discussion'})
+  }
+  else {
+    loginVisible.value = true
+  }
+}
+const toLogin = () => {
+  $router.push({name: 'login'})
 }
 const recommend = reactive([
   {

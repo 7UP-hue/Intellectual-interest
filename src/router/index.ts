@@ -40,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path:'/discussion',
     name:'discussion',
-    component: () => import('../pages/discussion.vue')
+    component: () => import('../pages/discussion/index.vue')
   },
   {
     path: '/home',

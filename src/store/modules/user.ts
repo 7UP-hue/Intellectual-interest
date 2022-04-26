@@ -18,13 +18,6 @@ type loginData = {
   name: string,
   password: string
 };
-type context = {
-  state: Record<string, unknown>;
-  mutations:  Record<string, unknown>;
-  actions: Record<string, unknown>;
-  dispatch: any;
-  commit: any;
-};
 export default {
   namespace: true,
   state: {
@@ -47,9 +40,9 @@ export default {
   },
   actions: {
     // 登录
-    login({ commit, dispatch }: context, userInfo: any) {
+    login({ commit, dispatch }: any, data: loginData) {
       return new Promise((resolve, reject) => {
-        userLogin((userInfo))
+        userLogin((data))
         .then((res: any) => {
           if(res.token) {
             commit('setUserInfo', {
@@ -74,17 +67,17 @@ export default {
       })
     },
     // 退出登录
-    loginout({ commit, dispatch }: context) {
+    loginout({ commit, dispatch }: any) {
       return new Promise ((resolve, reject) => {
         userLogout()
         .then((res: any) => {
           // 清空用户信息
-          commit("setUserInfo", {
-            name: "",
-            token: "",
-            avatar: "",
-            roles: ""
-          })
+          // commit("setUserInfo", {
+          //   name: "",
+          //   token: "",
+          //   avatar: "",
+          //   roles: ""
+          // })
           // 重置路由
           // dispatch('permission/resetRoute', null, { root: true})
           resolve(res)
@@ -95,8 +88,8 @@ export default {
       })
     },
     // 获取用户信息 暂时不写完 到时候根据情况补充
-    getInfo({commit, state}: context) {
+    // getInfo({commit, state}: context) {
       
-    }
+    // }
   }
 }
