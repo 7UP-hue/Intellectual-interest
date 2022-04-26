@@ -22,7 +22,7 @@
             <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="loginForm.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
           </el-form-item>
           <div>
-            <el-button type="text" @click="this.$router.push('/register')">还没有账号？点此注册</el-button>
+            <el-button type="text" @click="this.$router.push('/login')">还没有账号？点此注册</el-button>
             <el-button type="primary" @click="register">登录</el-button>
           </div>
         </el-form>
@@ -38,13 +38,16 @@ import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import axios from 'axios'
 const register = () => {
-  axios.post('localhost:8080/register',{
+  axios.post('http://localhost:8080/register',{
       username: '123',
-      password: '123'
+      password1: '123'
   })
   .then(res => {
     console.log(res)
   })
+  .catch(error => {
+    console.log(error);
+  });
 }
 const loginForm = reactive({
   userName: '',
