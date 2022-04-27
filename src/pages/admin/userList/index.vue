@@ -16,7 +16,7 @@
         </span>
       </div>
       <div class="mt-3">
-        <el-table :data="adminList">
+        <el-table :data="userList">
           <el-table-column prop="adminName" label="用户名" align="center"></el-table-column>
           <el-table-column prop="adminPsd" label="密码" align="center"></el-table-column>
           <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
@@ -24,10 +24,24 @@
             <template #default>
               <el-button type="success" size="small" plain>设为管理员</el-button>
               <el-button type="danger" size="small">删除</el-button>
-              <el-button type="info" size="small" @click="changePsd()">修改密码</el-button>
+              <el-button type="warning" size="small" @click="changePsd()">修改密码</el-button>
             </template>
           </el-table-column>
         </el-table>
+      </div>
+      <div class="example-pagination-block">
+        <div class="example-demonstration"></div>
+        <el-pagination
+        class="justify-center"
+          layout="total,sizes, prev, pager, next, jumper"
+          :total="userList.length"
+          :current-page="currentPage"
+          :page-size="pageSize"
+          :page-sizes="[1, 2, 5, 10]"
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
       </div>
     </div>
     <edit-psd ref="editpsd"></edit-psd>
@@ -39,6 +53,16 @@
   import { ref, reactive  } from 'vue'
   import { Search, Delete, Upload, Plus } from '@element-plus/icons-vue'
   const editpsd = ref(null);
+  const currentPage = ref(1);
+const pageSize = ref(5);
+const handleSizeChange = (val: number) => {
+  console.log(`${val} items per page`)
+  pageSize.value = val;
+}
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+  currentPage.value = val;
+}
   const changePsd = () => {
     (editpsd as any).value.edit();
   }
@@ -46,10 +70,18 @@
   const newAdmin = () => {
     (addadmin as any).value.add();
   }
-  const adminList = reactive([
+  const userList = reactive([
     {adminName: '张三', adminPsd: '123456', createTime: '2021.03.04'},
     {adminName: '李四', adminPsd: '123456', createTime: '2021.03.04'},
     {adminName: '王五', adminPsd: '123456', createTime: '2021.03.04'},
     {adminName: '赵六', adminPsd: '123456', createTime: '2021.03.04'},
   ])
 </script>
+<style scoped>
+.example-pagination-block + .example-pagination-block {
+  margin-top: 10px;
+}
+.example-pagination-block .example-demonstration {
+  margin-bottom: 16px;
+}
+</style>

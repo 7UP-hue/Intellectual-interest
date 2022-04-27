@@ -27,7 +27,7 @@
           <el-table-column prop="action" label="操作" align="center">
             <template #default>
               <el-button type="danger" size="small">删除</el-button>
-              <el-button type="info" size="small" @click="changePsd()">修改密码</el-button>
+              <el-button type="warning" size="small" @click="changePsd()">修改密码</el-button>
             </template>
           </el-table-column>
         </el-table>

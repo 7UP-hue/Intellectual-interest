@@ -19,7 +19,7 @@
         </span>
       </div>
       <div class="mt-3">
-        <el-table :data="adminList">
+        <el-table :data="classList">
           <el-table-column prop="className" label="班级名" align="center"></el-table-column>
           <el-table-column prop="classManager" label="管理者" align="center"></el-table-column>
           <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
@@ -30,6 +30,20 @@
             </template>
           </el-table-column>
         </el-table>
+      </div>
+      <div class="example-pagination-block">
+        <div class="example-demonstration"></div>
+        <el-pagination
+        class="justify-center"
+          layout="total,sizes, prev, pager, next, jumper"
+          :total="classList.length"
+          :current-page="currentPage"
+          :page-size="pageSize"
+          :page-sizes="[1, 2, 5, 10]"
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
       </div>
     </div>
     <edit-psd ref="editpsd"></edit-psd>
@@ -43,14 +57,32 @@
   import { Search, Delete, Upload, Plus } from '@element-plus/icons-vue'
   const editpsd = ref(null);
   const addclass = ref(null)
+  const currentPage = ref(1);
+const pageSize = ref(5);
+const handleSizeChange = (val: number) => {
+  console.log(`${val} items per page`)
+  pageSize.value = val;
+}
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+  currentPage.value = val;
+}
   const newClass = () => {
     (addclass as any).value.add();
   }
   import { reactive } from 'vue'
-  const adminList = reactive([
+  const classList = reactive([
     {className: '一班', classManager: '张三', createTime: '2021.03.04'},
     {className: '二班', classManager: '李四', createTime: '2021.03.04'},
     {className: '三班', classManager: '王五', createTime: '2021.03.04'},
     {className: '四班', classManager: '赵六', createTime: '2021.03.04'}
   ])
 </script>
+<style scoped>
+.example-pagination-block + .example-pagination-block {
+  margin-top: 10px;
+}
+.example-pagination-block .example-demonstration {
+  margin-bottom: 16px;
+}
+</style>
