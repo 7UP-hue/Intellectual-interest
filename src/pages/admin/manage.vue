@@ -23,7 +23,7 @@
         </el-sub-menu>
         <el-sub-menu index="userManage">
           <template #title><el-icon><orange /></el-icon>用户管理</template>
-          <el-menu-item index="userList"><el-icon><user-filled /></el-icon>学生列表</el-menu-item>
+          <el-menu-item index="userList"><el-icon><user-filled /></el-icon>用户列表</el-menu-item>
           <el-menu-item index="adminList"><el-icon><guide /></el-icon>老师列表</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="classManage">

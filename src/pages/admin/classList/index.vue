@@ -25,8 +25,8 @@
           <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
           <el-table-column prop="action" label="操作" align="center">
             <template #default>
-              <el-button type="text" size="small">查看班级信息</el-button>
-              <el-button type="text" size="small">解散班级</el-button>
+              <el-button type="primary" size="small" plain>查看班级信息</el-button>
+              <el-button type="danger" size="small">解散班级</el-button>
             </template>
           </el-table-column>
         </el-table>
