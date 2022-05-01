@@ -26,7 +26,7 @@
           </el-form-item>
           <div>
             <el-button type="text" @click="this.$router.push('/login')">已有账号，点此登录</el-button>
-            <el-button type="primary">注册</el-button>
+            <el-button type="primary" @click="register">注册</el-button>
           </div>
         </el-form>
       </div>
@@ -39,12 +39,24 @@
   } from '@element-plus/icons-vue'
   import { reactive, ref } from 'vue'
   import type { FormInstance } from 'element-plus'
+  import axios from 'axios'
   const regFormRef = ref<FormInstance>()
   const regForm = reactive({
     userName: '',
     pass: '',
     checkPass: ''
   })
+  const register = () => {
+  axios({
+    method: 'post',
+    url: 'http://localhost:8090/registerUser',
+    params: {
+      username: 'admin',
+      password1: '123',
+      password2: '123'
+    }
+  })
+  }
   const show_down = ref(true)
   const changeArm = (flag) =>  {
     if( flag===1 ) {
