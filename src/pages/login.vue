@@ -11,19 +11,19 @@
       <div>
         <el-form
           style="max-width: 460px"
-          ref="loginFormRef"
-          :model="loginForm"
+          ref="ruleFormRef"
+          :model="loginFormdata"
           :rules="rules"
         >
-          <el-form-item prop="userName">
-            <el-input v-model="loginForm.userName" placeholder="用户名" :prefix-icon="User"/>
+          <el-form-item prop="username">
+            <el-input v-model="loginFormdata.username" placeholder="用户名" :prefix-icon="User"/>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="loginForm.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
+            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="loginFormdata.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
           </el-form-item>
           <div>
             <el-button type="text" @click="this.$router.push('/register')">还没有账号？点此注册</el-button>
-            <el-button type="primary" @click="register">登录</el-button>
+            <el-button type="primary" @click="login(ruleFormRef)">登录</el-button>
           </div>
         </el-form>
       </div>
@@ -35,35 +35,56 @@ import {
   Avatar,User,Unlock
 } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
-import type { FormInstance } from 'element-plus'
+import type { FormInstance, ElMessage } from 'element-plus'
 import axios from 'axios'
-const register = () => {
-  console.log('进入register函数')
-  axios({
-					url:'http://localhost:8090/loginUser',
-					method: 'POST',
-					params: {
-            username: 'admin',
-            password: '123',
-          },
-					// headers:{
-					// 	'Content-Type':'application/x-www-form-urlencoded'
-					// }
-					
-				})
-				.then(res=>{
-					console.log(res);
-        })
-  console.log('register函数执行完毕')
-}
-const loginForm = reactive({
-  userName: '',
-  password: ''
+import { userLogin } from '@/api/user'
+
+//登录接口
+let loginFormdata = ref({
+  username: '',
+  password: '',
+  code: ''
 })
+const loginMessage = (res) => {
+  if(res.code === 200){
+    ElMessage({
+    message: '登录成功',
+    type: 'success', })
+  }else if(res.code === 400){
+    ElMessage({
+      message: '用户名或密码错误',
+      type: 'error'})
+}
+}
+const loginFalse = () => {
+  ElMessage({
+    message: '登录超时',
+    type: 'error'
+  })
+}
 const ruleFormRef = ref<FormInstance>()
+const login = async(formEl: FormInstance | undefined) => {
+  //校验失败
+  if(!formEl) return
+  await formEl.validate((valid, fields) => {
+    //校验成功
+    if(valid) {
+      userLogin({
+        password: loginFormdata.value.password,
+        username: loginFormdata.value.username
+      }).then((res) => {
+        loginMessage(res)
+        console.log(res);
+      }).catch(() => {
+        loginFalse()
+      })
+    }
+  })
+  
+}
 const show_down = ref(true)
 const rules = reactive({
-  userName: [
+  username: [
     {required: true, message: '用户名不能为空！', trigger: 'blur'}
   ],
   password: [

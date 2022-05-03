@@ -7,7 +7,7 @@ import { getToken, removeToken, removeRoles, removeName, removeAvatar } from './
 // 创建axios实例
 const service = axios.create({
     // 请求路由
-    baseURL: 'http://localhost:8080',
+    baseURL: 'http://localhost:8090',
     // 请求超时时间
     timeout: 5000,
 });
@@ -26,11 +26,8 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     (response) => {
         const res = response.data;
-        if(res.header.code !== 0) {
-            // Message.error(res.heaser.msg || "Error") 
-            return Promise.reject(new Error(res.header.msg || "Error"))
-        }
         return res;
+        
     },
     (error) => {
         if (error.response && error.response.status === 401) {
