@@ -18,6 +18,19 @@ export function userLogout() {
     method: 'get',
   })
 }
+
+//注册
+export function registerUser(data: any) {
+  return request({
+    url: '/registerUser',
+    method: 'post',
+    params: {
+      username: data.username,
+      password1: data.password1,
+      password2: data.password2
+    }
+  })
+}
 // 获取所有用户信息
  export function getAllUser() {
   return request({
