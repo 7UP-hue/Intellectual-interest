@@ -16,14 +16,15 @@
           :rules="rules"
         >
           <el-form-item prop="username">
-            <el-input v-model="loginFormdata.username" placeholder="用户名" :prefix-icon="User"/>
+            <el-input v-model.trim="loginFormdata.username" placeholder="用户名" :prefix-icon="User"/>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model="loginFormdata.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
+            <el-input @focus="changeArm(1)" @blur="changeArm(0)" v-model.trim="loginFormdata.password" placeholder="密码" :prefix-icon="Unlock" type="password" show-password />
           </el-form-item>
           <div>
             <el-button type="text" @click="this.$router.push('/register')">还没有账号？点此注册</el-button>
             <el-button type="primary" @click="login(ruleFormRef)">登录</el-button>
+            <el-button @click="resetForm(ruleFormRef)">重置</el-button>
           </div>
         </el-form>
       </div>
@@ -38,6 +39,11 @@ import { reactive, ref } from 'vue'
 import type { FormInstance, ElMessage } from 'element-plus'
 import axios from 'axios'
 import { userLogin } from '@/api/user'
+//重置文本框
+const resetForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.resetFields()
+}
 
 //登录接口
 let loginFormdata = ref({
@@ -45,6 +51,7 @@ let loginFormdata = ref({
   password: '',
   code: ''
 })
+//成功的响应
 const loginMessage = (res) => {
   if(res.code === 200){
     ElMessage({
@@ -55,6 +62,7 @@ const loginMessage = (res) => {
       message: '用户名或密码错误',
       type: 'error'})
 }
+//失败的响应
 }
 const loginFalse = () => {
   ElMessage({
@@ -83,12 +91,15 @@ const login = async(formEl: FormInstance | undefined) => {
   
 }
 const show_down = ref(true)
+//校验规则
 const rules = reactive({
   username: [
-    {required: true, message: '用户名不能为空！', trigger: 'blur'}
+    {required: true, message: '用户名不能为空！', trigger: 'blur'},
+    {min: 4, max: 12, message: '长度在 4 到 12 个字符', trigger: 'blur'}
   ],
   password: [
-    {required: true, message: '密码不能为空！', trigger: 'blur'}
+    {required: true, message: '密码不能为空！', trigger: 'blur'},
+    {min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur'}
   ]
 })
 const changeArm = (flag: number) =>  {
