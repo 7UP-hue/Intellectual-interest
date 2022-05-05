@@ -74,10 +74,18 @@ export function addFileClick(data: any) {
 
 //上传文件
 export function upload(data: any) {
+    console.log(data)
     return request({
         url: '/upload',
         method: 'post',
-        params: data
+        data: {
+            title: data.title,//标题
+            level:data.level,//年级：初中0高中1
+            file_subject: data.file_subject,//科目
+            type:data.file_type,//文件类型
+            limit: data.limit,//是否支持下载
+            file: data.file,//文件
+        }
     })
 }
 

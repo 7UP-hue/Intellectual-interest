@@ -22,7 +22,7 @@
         <el-table :data="resList">
           <el-table-column
             prop="title"
-            label="标题名称"
+            label="资源名称"
             align="center"
           ></el-table-column>
           <el-table-column
