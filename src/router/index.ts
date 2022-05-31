@@ -1,5 +1,13 @@
+/*
+ * @Description: 
+ * @Author: caojun
+ * @Date: 2022-05-31 21:26:31
+ * @LastEditors: caojun
+ * @LastEditTime: 2022-05-31 22:30:44
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
+import Index from '../pages/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
@@ -9,23 +17,40 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/home',
-    name: 'HelloWorld',
-    component: HelloWorld,
+    name: 'home',
+    component: () => import('../pages/home.vue'),
+    children: [
+      {
+        path :'',
+        name:'HelloWorld',
+        component: () => import('../pages/HelloWorld.vue')
+      },
+      {
+        path :'/infoEnter',
+        name:'infoEnter',
+        component: () => import('../pages/infoEnter.vue')
+      },
+      {
+        path :'/infoManage',
+        name:'infoManage',
+        component: () => import('../pages/infoManage.vue')
+      },
+      {
+        path :'/upload',
+        name:'upload',
+        component: () => import('../pages/upload.vue')
+      }
+    ]
   },
   {
     path: '/aaa',
     name: 'aaa',
-    component: () =>
-    import(/* webpackChunkName: "About" */ '../components/aaa.vue'),
+    component: () => import('../components/aaa.vue'),
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "About" */ '../components/About.vue'),
+    component: () => import('../components/About.vue'),
   },
   {
     path: '/:currentPath(.*)*', // 路由未匹配到，进入这个
